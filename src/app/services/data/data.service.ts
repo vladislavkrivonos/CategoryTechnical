@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject, tap } from 'rxjs';
+import { Observable, ReplaySubject, tap } from 'rxjs';
 import { Category } from 'src/app/models/category.model';
 import { ApiClientService } from '../api-client/api-client.service';
 
@@ -7,7 +7,7 @@ import { ApiClientService } from '../api-client/api-client.service';
   providedIn: 'root',
 })
 export class DataService {
-  readonly data: Subject<Category[]> = new Subject<Category[]>();
+  readonly data: ReplaySubject<Category[]> = new ReplaySubject<Category[]>();
 
   private storedData: Category[] = [];
   private showOnlyActive!: boolean;
@@ -16,6 +16,7 @@ export class DataService {
   constructor(private apiClient: ApiClientService) {}
 
   init() {
+    console.log(`initation: ${this.storedData}`);
     if (this.storedData.length) return;
 
     this.apiClient.getDataList().subscribe((res) => {
