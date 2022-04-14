@@ -1,0 +1,18 @@
+<mat-card class="search-bar">
+  <mat-form-field class="input">
+    <mat-icon matPrefix class="icon">search</mat-icon>
+    <input
+      matInput
+      type="search"
+      placeholder="search here"
+      class="search-input"
+      #input
+    />
+  </mat-form-field>
+  <mat-slide-toggle
+    [ngModel]="showOnlyActive"
+    (ngModelChange)="onShowOnlyActiveChange($event)"
+  >
+    Only Active
+  </mat-slide-toggle>
+</mat-card>

@@ -1,0 +1,20 @@
+<mat-card class="item">
+  <div (click)="onClick()">
+    <mat-card-title>
+      {{ item.pageTitle }}
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{ item.pageType }}
+    </mat-card-subtitle>
+    <mat-card-content>
+      <div class="main-info">{{ item.content }}</div>
+    </mat-card-content>
+  </div>
+  <mat-card-actions class="actions">
+    <mat-slide-toggle
+      [ngModel]="item.isActive"
+      (ngModelChange)="onActiveChange($event)"
+      >Active</mat-slide-toggle
+    >
+  </mat-card-actions>
+</mat-card>

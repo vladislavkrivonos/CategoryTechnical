@@ -1,0 +1,7 @@
+<mat-card *ngIf="isReady" class="list-data">
+  <app-category-search-bar></app-category-search-bar>
+  <app-category-list-item
+    *ngFor="let item of data"
+    [item]="item"
+  ></app-category-list-item>
+</mat-card>
